@@ -35,4 +35,20 @@ app.listen(process.env.PORT, function () {
 function saveEntry(req, res) {
 	var containerName = 'entries';
 
+	blobSvc.createContainerIfNotExists(containerName, function(error, result, response){
+		if (error) {
+			console.log("Couldn't create container %s", containerName);
+			console.error(err);
+			
+			res.status(500).send('Could not find or create container "' + containerName + '"!')
+			
+			return;
+		} else {
+			if (result) {
+				console.log('Container %s created', containerName);
+			} else {
+				console.log('Container %s already exists', containerName);
+			}
+		}
+	});
 }
