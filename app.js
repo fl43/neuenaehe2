@@ -28,6 +28,8 @@ app.get('/', function (req, res) {
 })
 
 app.get('/entries', function (req, res) {
+	console.log('Request for entries: ' + JSON.stringify(req.query));
+
 	var lat = req.query.lat
 	var lng = req.query.lng
 	var radius = req.query.radius
