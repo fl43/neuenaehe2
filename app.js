@@ -55,16 +55,17 @@ function saveEntry(req, res) {
 		}
 	});
 
+/*
 	console.log('params: %s', req.params);
 	console.log('body: %s', req.body);
 	console.log('type %s', typeof req.param("img"))
 	console.log('param.user %s', req.params.user)
 	console.log('body.user %s', req.body.user)
-
-	var usr = req.param("user");
-	var buf = Buffer.from(req.param("img"), 'base64');
-	var lat = req.param("lat");
-	var lng = req.param("long");
+*/
+	var usr = req.body.user;
+	var buf = Buffer.from(req.body.img, 'base64');
+	var lat = req.body.lat;
+	var lng = req.body.long;
 	
 	var fileName = 'place-' + lat + '-' + lng;
 	
