@@ -76,7 +76,7 @@ function saveEntry(req, res) {
 	
 	var fileName = 'place-' + lat + '-' + lng;
 	
-	blobSvc.createBlockBlobFromText(containerName, fileName, buf, function (error, result, response) {
+	blobSvc.createBlockBlobFromText(containerName, fileName, imgStr, {contentEncoding:'base64'}, function (error, result, response) {
 		if(error){
             console.log("Couldn't not store file as text '" + fileName + "!");
             console.error(error);
