@@ -1,4 +1,15 @@
 var express = require('express')
+var url = require('url')
+
+var azureStorage = require('azure-storage')
+var blobSvc = azureStorage.createBlobService()
+var documentClient = require("documentdb").DocumentClient
+
+var config = {};
+config.endpoint = "https://neuenaehentt.documents.azure.com:443/"
+config.primaryKey = "wSWrRxtVz8aXiuI9iy4lHNIe5Bi5pdWHYBciBqjYgjuR6oLtEQ9XurCGMKIWBHlWWVkgdSM7JSJ34uHtBBIhgw=="
+	
+var client = new documentClient(config.endpoint, { "masterKey": config.primaryKey })
 
 var app = express()
 
