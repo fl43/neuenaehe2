@@ -1,4 +1,5 @@
 var express = require('express')
+var bodyParser = require('body-parser')
 var url = require('url')
 
 var azureStorage = require('azure-storage')
@@ -17,6 +18,8 @@ config.primaryKey = "wSWrRxtVz8aXiuI9iy4lHNIe5Bi5pdWHYBciBqjYgjuR6oLtEQ9XurCGMKI
 var client = new documentClient(config.endpoint, { "masterKey": config.primaryKey })
 
 var app = express()
+
+app.use(bodyParser.json());
 
 app.get('/', function (req, res) {
 	console.log('A new request arrived with HTTP headers: ' + JSON.stringify(req.headers));
