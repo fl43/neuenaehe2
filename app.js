@@ -69,4 +69,18 @@ function saveEntry(req, res) {
             console.log('String uploaded successfully');
         }
 	});
+
+	
+	// "EntryDB"
+	// "EntryCollection"
+	// var HttpStatusCodes = { NOTFOUND: 404 };
+	var collectionUrl = 'dbs/EntryDB/colls/EntryCollection';
+
+	
+	var document = {}
+	document.filename = fileName
+	document.user = usr
+	document.lat = lat
+	document.lng = lng
+	document.timestamp = new Date().getMilliseconds()
 }
