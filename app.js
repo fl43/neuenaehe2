@@ -63,12 +63,14 @@ function saveEntry(req, res) {
 	*/
   console.log('body.user %s', req.body.user)
 	console.log('body.img %s', req.body.img)
-	console.log('typeof body.img %s', typeof req.body.img)
 	console.log('body.lat %s', req.body.lat)
 	console.log('body.lng %s', req.body.lng)
 
+	var imgStr = req.body.img
+	console.log('typeof body.img %s', typeof imgStr)
+
 	var usr = req.body.user;
-	var buf = Buffer.from(req.body.img, 'base64');
+	var buf = Buffer.from(imgStr, 'base64');
 	var lat = req.body.lat;
 	var lng = req.body.long;
 	
