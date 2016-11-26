@@ -15,7 +15,7 @@ var config = {};
 config.endpoint = "https://neuenaehentt.documents.azure.com:443/"
 config.primaryKey = "wSWrRxtVz8aXiuI9iy4lHNIe5Bi5pdWHYBciBqjYgjuR6oLtEQ9XurCGMKIWBHlWWVkgdSM7JSJ34uHtBBIhgw=="
 	
-var client = new documentClient(config.endpoint, { "masterKey": config.primaryKey })
+var docClient = new documentClient(config.endpoint, { "masterKey": config.primaryKey })
 
 var app = express()
 
@@ -62,7 +62,7 @@ function saveEntry(req, res) {
 	console.log('param.user %s', req.params.user)
 	*/
   console.log('body.user %s', req.body.user)
-	console.log('body.img %s', req.body.img)
+	// console.log('body.img %s', req.body.img)
 	console.log('body.lat %s', req.body.lat)
 	console.log('body.lng %s', req.body.lng)
 
@@ -101,7 +101,7 @@ function saveEntry(req, res) {
 	document.lng = lng
 	document.timestamp = new Date().getMilliseconds()
 
-	documentClient.createDocument(collectionUrl, document, function(err, created) {
+	docClient.createDocument(collectionUrl, document, function(err, created) {
 				if (err) {
 					console.log("Couldn't not store document for '" + fileName + "!");
 					console.error(error);
