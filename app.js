@@ -72,7 +72,7 @@ function saveEntry(req, res) {
 	var usr = req.body.user;
 	// var buf = Buffer.from(imgStr, 'base64');
 	var lat = req.body.lat;
-	var lng = req.body.long;
+	var lng = req.body.lng;
 	
 	var fileName = 'place-' + lat + '-' + lng;
 	
