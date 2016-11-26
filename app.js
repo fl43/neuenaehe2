@@ -2,7 +2,12 @@ var express = require('express')
 var url = require('url')
 
 var azureStorage = require('azure-storage')
-var blobSvc = azureStorage.createBlobService()
+
+var storageConfig = {};
+storageConfig.account = 'neuenaehentt'
+storageConfig.key1 = 'Jhg+67Zv0wmrlUuLTDBOhru8kq25syPBQ0gegTfNHocQ0hZjFuyNtbpdxuieWFMVKIGMEQrhSEmno5pXDj4HlQ=='
+
+var blobSvc = azureStorage.createBlobService(storageConfig.account, storageConfig.key1);
 var documentClient = require("documentdb").DocumentClient
 
 var config = {};
