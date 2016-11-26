@@ -51,4 +51,22 @@ function saveEntry(req, res) {
 			}
 		}
 	});
+
+	var usr = req.param("user");
+	var buf = new Buffer(req.param("img"), 'base64');
+	var lat = req.param("lat");
+	var lng = req.param("long");
+	
+	var fileName = 'place-' + lat + '-' + lng;
+	
+	blobSvc.createBlockBlobFromText(containerName, fileName, buf, function (error, result, response) {
+		if(error){
+            console.log("Couldn't not store file as text '" + fileName + "!");
+            console.error(error);
+			
+			res.status(500).send('Could not store file as text "' + fileName + '"!')
+        } else {
+            console.log('String uploaded successfully');
+        }
+	});
 }
