@@ -53,7 +53,7 @@ function saveEntry(req, res) {
 	});
 
 	var usr = req.param("user");
-	var buf = new Buffer(req.param("img"), 'base64');
+	var buf = Buffer.from(req.param("img"), 'base64');
 	var lat = req.param("lat");
 	var lng = req.param("long");
 	
