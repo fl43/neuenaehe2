@@ -55,6 +55,7 @@ function saveEntry(req, res) {
 	console.log('params: %s', req.params);
 	console.log('body: %s', req.body);
 	console.log('type %s', typeof req.param("img"))
+	console.log('user %s', req.params.user)
 
 	var usr = req.param("user");
 	var buf = Buffer.from(req.param("img"), 'base64');
