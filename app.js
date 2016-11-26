@@ -84,7 +84,7 @@ function saveEntry(req, res) {
 	document.lng = lng
 	document.timestamp = new Date().getMilliseconds()
 
-	documentClient.createDocument(collectionUrl, document, (err, created) => {
+	documentClient.createDocument(collectionUrl, document, function(err, created) {
 				if (err) {
 					console.log("Couldn't not store document for '" + fileName + "!");
 					console.error(error);
@@ -96,5 +96,5 @@ function saveEntry(req, res) {
 				}
 		});
 
-		res.send("Success)
+		res.send("Success")
 }
