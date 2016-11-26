@@ -1,10 +1,11 @@
 var express = require('express')
-var url = require('url');
+var url = require('url')
 
-var blobSvc = require('azure-storage').createBlobService();
-var documentClient = require("documentdb").DocumentClient;
+var azureStorage = require('azure-storage')
+var blobSvc = azureStorage.createBlobService()
+var documentClient = require("documentdb").DocumentClient
 
-var config = {}
+var config = {};
 config.endpoint = "https://neuenaehentt.documents.azure.com:443/";
 config.primaryKey = "wSWrRxtVz8aXiuI9iy4lHNIe5Bi5pdWHYBciBqjYgjuR6oLtEQ9XurCGMKIWBHlWWVkgdSM7JSJ34uHtBBIhgw==";
 	
@@ -70,13 +71,13 @@ function saveEntry(req, res) {
 	// var HttpStatusCodes = { NOTFOUND: 404 };
 	var collectionUrl = 'dbs/EntryDB/colls/EntryCollection';
 
-	var document = {
-		"filename": fileName,
-		"user": usr,
-		"lat" : lat,
-		"lng" : lng,
-		"timestamp" : new Date().getMilliseconds
-	};
+	
+	var document = {}
+	document.filename = fileName
+	document.user = usr
+	document.lat = lat
+	document.lng = lng
+	document.timestamp = new Date().getMilliseconds
 
 	documentClient.createDocument(collectionUrl, document, (err, created) => {
 				if (err) {
