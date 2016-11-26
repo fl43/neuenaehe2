@@ -83,4 +83,18 @@ function saveEntry(req, res) {
 	document.lat = lat
 	document.lng = lng
 	document.timestamp = new Date().getMilliseconds()
+
+	documentClient.createDocument(collectionUrl, document, (err, created) => {
+				if (err) {
+					console.log("Couldn't not store document for '" + fileName + "!");
+					console.error(error);
+
+					res.status(500).send('Could not store document for "' + fileName + '"!')
+				}
+				else {
+					console.log('Document saved successfully');
+				}
+		});
+
+		res.send("Success)
 }
