@@ -63,6 +63,7 @@ function saveEntry(req, res) {
 	*/
   console.log('body.user %s', req.body.user)
 	console.log('body.img %s', req.body.img)
+	console.log('typeof body.img %s', typeof req.body.img)
 	console.log('body.lat %s', req.body.lat)
 	console.log('body.lng %s', req.body.lng)
 
