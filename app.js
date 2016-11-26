@@ -27,6 +27,24 @@ app.get('/', function (req, res) {
 	res.send('Hello World!')
 })
 
+app.get('/entries', function (req, res) {
+	var lat = req.query.lat
+	var lng = req.query.lng
+	var radius = req.query.radius
+
+	var entries = []
+	if (raidus == '1') {
+		entries.push({'lat': 52.53, 'lng':13.39, 'type':'Treppe ohne Rampe', 'comment':'Fehlende Rampe vor dem Eingang'});
+		entries.push({'lat': 52.45, 'lng':13.31, 'type':'Bordstein nicht abgesenkt', 'comment':'Überquerung Unter den Linden problematisch'});
+	}
+	else if (radius == '2') {
+		entries.push({'lat': 52.53, 'lng':13.39, 'type':'Treppe ohne Rampe', 'comment':'Fehlende Rampe vor dem Eingang'});
+		entries.push({'lat': 52.45, 'lng':13.31, 'type':'Bordstein nicht abgesenkt', 'comment':'Überquerung Unter den Linden problematisch'});
+		entries.push({'lat': 52.58, 'lng':13.52, 'type':'Ampel ohne Akustik', 'comment':'Das Klacken fehlt'});
+	}
+	res.send(JSON.stringify(entrie))
+})
+
 app.post('/entry', function(req, res) {
 	saveEntry(req, res);
 })
