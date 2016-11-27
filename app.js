@@ -44,7 +44,7 @@ app.get('/entries', function (req, res) {
 		entries.push({'lat': 52.45, 'lng':13.31, 'type':'Bordstein nicht abgesenkt', 'comment':'Überquerung Unter den Linden problematisch'});
 		entries.push({'lat': 52.58, 'lng':13.52, 'type':'Ampel ohne Akustik', 'comment':'Das Klacken fehlt'});
 	}
-	res.send(JSON.stringify(entries))
+	res.type('application/json').json(entries)
 })
 
 app.post('/entry', function(req, res) {
